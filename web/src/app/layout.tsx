@@ -1,16 +1,17 @@
 import { ReactNode } from 'react'
 import './globals.css'
-import {
-  Roboto_Flex as Roboto,
-  Bai_Jamjuree as BaiJamjuree,
-} from 'next/font/google'
+import { Roboto, Bai_Jamjuree as BaiJamjuree } from 'next/font/google'
 import Hero from '@/components/Hero'
 import Profile from '@/components/Profile'
 import SignIn from '@/components/SignIn'
 import Copyright from '@/components/Copyright'
 import { cookies } from 'next/headers'
 
-const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: '400',
+})
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
   weight: '700',
@@ -47,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Copyright />
           </div>
           {/* Right */}
-          <div className="flex flex-col bg-[url(../assets/bg-stars.svg)] bg-cover p-16 ">
+          <div className="flex max-h-screen flex-col overflow-y-scroll bg-[url(../assets/bg-stars.svg)] bg-cover">
             {children}
           </div>
         </main>
